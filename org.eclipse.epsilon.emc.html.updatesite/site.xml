@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.eclipse.epsilon.emc.html.feature_1.0.0.201504240912.jar" id="org.eclipse.epsilon.emc.html.feature" version="1.0.0.201504240912">
+      <category name="Epsilon HTML Integration"/>
+   </feature>
+   <category-def name="Epsilon HTML Integration" label="Epsilon HTML Integration"/>
+</site>
