@@ -7,8 +7,6 @@ import java.net.URISyntaxException;
 import java.util.Collection;
 import java.util.Collections;
 
-import javax.xml.ws.http.HTTPException;
-
 import org.eclipse.epsilon.common.util.FileUtil;
 import org.eclipse.epsilon.common.util.StringProperties;
 import org.eclipse.epsilon.emc.plainxml.PlainXmlType;
@@ -159,18 +157,18 @@ public class HtmlModel extends CachedModel<org.jsoup.nodes.Element> {
 	}
 
 	@Override
-	protected Collection<? extends Element> allContentsFromModel() {
+	protected Collection<Element> allContentsFromModel() {
 		return document.getAllElements();
 	}
 
 	@Override
-	protected Collection<? extends Element> getAllOfTypeFromModel(String type)
+	protected Collection<Element> getAllOfTypeFromModel(String type)
 			throws EolModelElementTypeNotFoundException {
 		return document.select(PlainXmlType.parse(type).getTagName());
 	}
 
 	@Override
-	protected Collection<? extends Element> getAllOfKindFromModel(String kind)
+	protected Collection<Element> getAllOfKindFromModel(String kind)
 			throws EolModelElementTypeNotFoundException {
 		return getAllOfTypeFromModel(kind);
 	}
