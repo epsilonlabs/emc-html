@@ -10,5 +10,5 @@ Eclipse plugins that extend Epsilon's Model Connectivity (EMC) layer with suppor
 * Import the `org.eclipse.epsilon.emc.html.examples.dblp` project into your nested Eclipse workspace
 * Right click on `fetch-bibtex.launch` and select `Run As -> fetch-bibtex`
 
-## How to script HTML documents
+## How to Script HTML Documents
 * The HTML driver reuses [the syntax of the Epsilon XML driver](https://www.eclipse.org/epsilon/doc/articles/plain-xml/) to query HTML documents.
