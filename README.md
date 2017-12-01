@@ -7,7 +7,7 @@ Eclipse plugins that extend Epsilon's Model Connectivity (EMC) layer with suppor
 * Import the `org.eclipse.epsilon.emc.html` and `org.eclipse.epsilon.emc.html.dt` projects into your workspace
 * Run the main method of the `HtmlModel` class in `org.eclipse.epsilon.emc.html` **or**
 * Start a nested Eclipse instance by selecting the `org.eclipse.epsilon.emc.html project` and clicking `Run As -> Eclipse Application`
-* Import the `org.eclipse.epsilon.emc.html.examples.dblp` project into your nested Eclipse workspace
+* Import the `org.eclipse.epsilon.emc.html.examples.dblp` and `org.eclipse.epsilon.emc.html.examples.bootstrap` projects into your nested Eclipse workspace
 * Right click on `fetch-bibtex.launch` and select `Run As -> fetch-bibtex` or `bootstrap.launch` and select `Run As -> bootstrap`
 
 ## How to Script HTML Documents
