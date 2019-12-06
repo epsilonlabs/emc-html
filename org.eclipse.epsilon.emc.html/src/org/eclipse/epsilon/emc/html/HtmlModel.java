@@ -32,9 +32,9 @@ public class HtmlModel extends CachedModel<org.jsoup.nodes.Element> {
 	protected HttpStatusException httpException;
  	protected Document document;
 	protected final String ELEMENT_TYPE = "Element";
-	public static String PROPERTY_FILE = "file";
-	public static String PROPERTY_URI = "uri";
-	public static String PROPERTY_TIMEOUT = "timeout";
+	public static final String PROPERTY_FILE = "file";
+	public static final String PROPERTY_URI = "uri";
+	public static final String PROPERTY_TIMEOUT = "timeout";
 	
 	protected String uri = null;
 	protected File file = null;
@@ -89,6 +89,11 @@ public class HtmlModel extends CachedModel<org.jsoup.nodes.Element> {
 	
 	public void setUri(String uri) {
 		this.uri = uri;
+	}
+	
+	@Override
+	public boolean isLoaded() {
+		return file != null;
 	}
 	
 	@Override

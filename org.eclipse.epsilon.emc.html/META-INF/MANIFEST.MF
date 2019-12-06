@@ -9,6 +9,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.epsilon.eol.engine,
  org.eclipse.epsilon.emc.plainxml,
  org.jsoup;bundle-version="1.7.2"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.epsilon.emc.html
+Automatic-Module-Name: org.eclipse.epsilon.emc.html
