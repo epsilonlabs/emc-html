@@ -6,7 +6,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collection;
 import java.util.Collections;
-
 import org.eclipse.epsilon.common.util.FileUtil;
 import org.eclipse.epsilon.common.util.StringProperties;
 import org.eclipse.epsilon.emc.plainxml.PlainXmlType;
@@ -15,7 +14,6 @@ import org.eclipse.epsilon.eol.exceptions.models.EolEnumerationValueNotFoundExce
 import org.eclipse.epsilon.eol.exceptions.models.EolModelElementTypeNotFoundException;
 import org.eclipse.epsilon.eol.exceptions.models.EolModelLoadingException;
 import org.eclipse.epsilon.eol.exceptions.models.EolNotInstantiableModelElementTypeException;
-import org.eclipse.epsilon.eol.execute.introspection.IPropertyGetter;
 import org.eclipse.epsilon.eol.models.CachedModel;
 import org.eclipse.epsilon.eol.models.IRelativePathResolver;
 import org.jsoup.Connection;
@@ -26,9 +24,7 @@ import org.jsoup.nodes.Element;
 
 //TODO: Add support for timeout
 public class HtmlModel extends CachedModel<org.jsoup.nodes.Element> {
-	
-	protected HtmlPropertyGetter propertyGetter = new HtmlPropertyGetter();
-	protected HtmlPropertySetter propertySetter = new HtmlPropertySetter();
+
 	protected HttpStatusException httpException;
  	protected Document document;
 	protected final String ELEMENT_TYPE = "Element";
@@ -38,27 +34,11 @@ public class HtmlModel extends CachedModel<org.jsoup.nodes.Element> {
 	
 	protected String uri = null;
 	protected File file = null;
-	protected int timeout = 60000;
-	
-	public static void main(String[] args) throws Exception {
-		/*
-		EolModule module = new EolModule();
-		module.parse("t_div.all.size().println();");
-		HtmlModel model = new HtmlModel();
-		model.setName("M");
-		model.setUri("http://www.google.com");
-		model.load();
-		module.getContext().getModelRepository().addModel(model);
-		module.execute();*/
-		
-		HtmlModel m = new HtmlModel();
-		m.setUri("https://github.com/search?page=5&utf8=%E2%9C%93&q=transform+extension%3Aetl&type=Code&ref=searchresults");
-		m.setCachingEnabled(false);
-		m.load();
-		
-		System.out.println(m.getAllOfType("t_p"));
-		
-		
+	protected int timeout = 60_000;
+
+	public HtmlModel() {
+		propertyGetter = new HtmlPropertyGetter();
+		propertySetter = new HtmlPropertySetter();
 	}
 	
 	@Override
@@ -247,16 +227,6 @@ public class HtmlModel extends CachedModel<org.jsoup.nodes.Element> {
 	
 	public Document getDocument() {
 		return document;
-	}
-	
-	@Override
-	public IPropertyGetter getPropertyGetter() {
-		return propertyGetter;
-	}
-	
-	@Override
-	public HtmlPropertySetter getPropertySetter() {
-		return propertySetter;
 	}
 	
 	public HttpStatusException getHttpException() {
