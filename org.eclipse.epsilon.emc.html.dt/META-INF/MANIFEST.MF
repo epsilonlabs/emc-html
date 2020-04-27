@@ -7,6 +7,7 @@ Bundle-Activator: org.eclipse.epsilon.emc.html.dt.Activator
 Require-Bundle: org.eclipse.epsilon.common.dt,
  org.eclipse.epsilon.emc.html
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.eclipse.epsilon.emc.html.dt
 Bundle-Vendor: Eclipse.org
+Automatic-Module-Name: org.eclipse.epsilon.emc.html.dt
