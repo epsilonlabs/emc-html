@@ -14,6 +14,7 @@ import org.eclipse.epsilon.eol.exceptions.models.EolEnumerationValueNotFoundExce
 import org.eclipse.epsilon.eol.exceptions.models.EolModelElementTypeNotFoundException;
 import org.eclipse.epsilon.eol.exceptions.models.EolModelLoadingException;
 import org.eclipse.epsilon.eol.exceptions.models.EolNotInstantiableModelElementTypeException;
+import org.eclipse.epsilon.eol.execute.introspection.IPropertySetter;
 import org.eclipse.epsilon.eol.models.CachedModel;
 import org.eclipse.epsilon.eol.models.IRelativePathResolver;
 import org.jsoup.Connection;
@@ -38,7 +39,11 @@ public class HtmlModel extends CachedModel<org.jsoup.nodes.Element> {
 
 	public HtmlModel() {
 		propertyGetter = new HtmlPropertyGetter();
-		propertySetter = new HtmlPropertySetter();
+	}
+	
+	@Override
+	public IPropertySetter getPropertySetter() {
+		return new HtmlPropertySetter();
 	}
 	
 	@Override

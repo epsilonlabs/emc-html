@@ -1,7 +1,9 @@
 package org.eclipse.epsilon.emc.html;
 
+import org.eclipse.epsilon.common.module.ModuleElement;
 import org.eclipse.epsilon.emc.plainxml.PlainXmlProperty;
 import org.eclipse.epsilon.eol.exceptions.EolRuntimeException;
+import org.eclipse.epsilon.eol.execute.context.IEolContext;
 import org.eclipse.epsilon.eol.execute.introspection.java.JavaPropertyGetter;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -9,13 +11,12 @@ import org.jsoup.select.Elements;
 public class HtmlPropertyGetter extends JavaPropertyGetter {
 
 	@Override
-	public Object invoke(Object object, String property)
-			throws EolRuntimeException {
+	public Object invoke(Object object, String property, ModuleElement ast, IEolContext context) throws EolRuntimeException {
 		
 		Element element = (Element) object;
 		PlainXmlProperty p = PlainXmlProperty.parse(property);
 		
-		if (p == null) return super.invoke(object, property);
+		if (p == null) return super.invoke(object, property, ast, context);
 		
 		if (p.isAttribute()) {
 			return p.cast(element.attr(p.getProperty()));
